@@ -5,6 +5,9 @@
 * mobx
 * scss
 
+# INFO
+СОЗДАТЕЛЬ АРТЁМ, НЕ ФЕЙК)
+
 ## Demo
 ![Demo](https://github.com/webshining/CourseAvia/blob/react/demo.gif)
 ## Home Preview

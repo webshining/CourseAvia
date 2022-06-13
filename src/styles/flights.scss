@@ -1,6 +1,5 @@
 .flights {
   position: absolute;
-  left: 0;
   bottom: 0;
   width: 100%;
   height: calc(100% - 50px);
@@ -13,124 +12,77 @@
     position: relative;
     width: 95%;
     height: 95%;
-    border-radius: 10px;
     overflow: auto;
+    border-radius: 10px;
     border: 2px solid gray;
-    &::-webkit-scrollbar {
-      width: 5px;
-    }
-    &::-webkit-scrollbar-track {
-      background: rgba(49, 49, 49, 0.51);
-      border-radius: 10px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: #fff;
-      border-radius: 10px;
-    }
+    padding-bottom: 70px;
   }
-  &_head, &_body {
+  table {
     width: 100%;
+    min-width: 1000px;
+    border-collapse: collapse;
+    table-layout: fixed;
   }
-  &_row {
-    width: 100%;
+  td {
     position: relative;
-    left: 0;
-    display: grid;
-    grid-template-columns: repeat(5, 17%) 1fr;
-    span {
-      position: relative;
-      padding: 20px;
-    }
-    span:not(:nth-child(6)) {
-      &:before {
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 2px;
-        height: 70%;
-        background: gray;
-      }
-    }
-    &-btns {
+    &:not(:last-child):before {
+      content: "";
       position: absolute;
-      height: 100%;
-      right: 10px;
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-    &-btn {
-      cursor: pointer;
-    }
-  }
-  &_head {
-    position: sticky;
-    top: 0;
-    background: gray;
-    z-index: 999999;
-    overflow: hidden;
-    span {
-      text-align: center;
-    }
-  }
-  &_body {
-    z-index: -1;
-    span {
-      padding: 0;
-    }
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 60%;
+      border-radius: 10px;
+      width: 2px;
+      background: gray;
     }
     input {
+      font-size: 18px;
+      color: #fff;
+      position: absolute;
       width: 100%;
-      padding: 10px;
+      height: 100%;
+      padding: 20px;
+      left: 0;
+      top: 0;
       background: none;
       border: none;
-      color: #fff;
-      font-size: 18px;
-      font-weight: 600;
-      margin-top: 10px;
       &:focus {
         outline: none;
       }
     }
   }
+  th,td {
+    padding: 20px;
+    text-align: center;
+    word-break: break-all;
+    span {
+      cursor: pointer;
+      -webkit-user-select: none;
+      &:not(:first-child) {
+        margin-left: 10px;
+      }
+    }
+  }
+  thead th {
+    position: sticky;
+    top: 0;
+    background-color: gray;
+    z-index: 1000000000;
+  }
   &_btns {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    position: fixed;
+    bottom: 30px;
+    right: 70px;
   }
   &_btn {
-    border-radius: 10px;
     cursor: pointer;
-    font-size: 30px;
-    padding: 10px;
     margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    background: #595959;
     &:hover {
       background: #313131;
     }
-  }
-}
-
-@media screen and (max-width: 940px) {
-  .flights_head {
-    font-size: 15px;
-  }
-  .flights_row-btn {
-    font-size: 18px;
-  }
-}
-@media screen and (max-width: 600px) {
-  .flights_row {
-    span {
-      width: 100px;
-    }
-  }
-  .flights_body > .flights_row > span {
-    font-size: 10px;
   }
 }

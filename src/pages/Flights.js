@@ -16,9 +16,6 @@ const Flights = observer(() => {
         const elem = document.getElementById('file')
         elem.click()
     }
-    const addRow = () => {
-        setFlights()
-    }
     const getFile = (e) => {
         if(!/.json$/.test(e.target.files[0].name)) {
            return alert('Файл должен быть типа json')
@@ -34,24 +31,27 @@ const Flights = observer(() => {
     return (
         <div className="flights">
             <div className="content">
-                <div className="flights_head">
-                    <div className="flights_row">
-                        <span>Номер рейсу</span>
-                        <span>Звідки</span>
-                        <span>Куди</span>
-                        <span>Час Відпр.</span>
-                        <span>Час Прибут.</span>
-                        <span>Тривалість</span>
-                    </div>
-                </div>
-                <div className="flights_body">
-                    {flights.map(i =>
-                        <FlightRow key={i.id} {...i} id={flights.indexOf(i) + 1}/>
-                    )}
-                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Звідки</th>
+                            <th>Куди</th>
+                            <th>Час Відпр.</th>
+                            <th>Час Прибут.</th>
+                            <th>Час Прибут.</th>
+                            <th>Дії</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {flights.map(f =>
+                            <FlightRow key={f.id} {...f} id={flights.indexOf(f)+1}/>
+                        )}
+                    </tbody>
+                </table>
                 <div className="flights_btns">
-                    <div className="flights_btn material-symbols-rounded" onClick={addRow}>add</div>
-                    <input type="file" id="file" style={{display: 'none'}} onChange={getFile}/>
+                    <div className="flights_btn material-symbols-rounded" onClick={setFlights}>add</div>
+                    <input type="file" id="file" style={{display: 'none'}} onChange={e => getFile(e)}/>
                     <div className="flights_btn material-symbols-rounded" onClick={openFileHandler}>folder_open</div>
                     <a href="/flights" className="flights_btn material-symbols-rounded" id="save" onClick={saveFileHandler}>save</a>
                 </div>

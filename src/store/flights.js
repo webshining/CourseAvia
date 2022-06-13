@@ -7,14 +7,12 @@ export class FlightsStore {
     }
 
     setFlights = (id, name, value, obj) => {
-        if(!obj) {
-            if (this.flights.map(f => f.id).indexOf(Number(id)) !== -1) {
-                this.flights[id-1][name] = value
-            } else {
-                this.flights.push({id: this.flights.length+1, from: '', to: '', time_start: '', time_end: '', time: ''})
-            }
-        } else {
+        if (obj) {
             this.flights = JSON.parse(obj)
+        } else if (this.flights.map(f => f.id).indexOf(Number(id)) !== -1) {
+            this.flights[id-1][name] = value
+        } else {
+            this.flights.push({id: this.flights.length+1, from: '', to: '', time_start: '', time_end: '', time: ''})
         }
     }
     deleteFlights = (id) => {
@@ -24,6 +22,5 @@ export class FlightsStore {
                 f.id -= 1
             }
         })
-        console.log(this.flights.map(f => f.id))
     }
 }

@@ -3,25 +3,26 @@ import {observer} from "mobx-react-lite";
 import {Context} from "../index";
 
 const FlightRow = observer((props) => {
-    const [ReadOnly, setReadOnly] = useState(true)
+    const [read, setRead] = useState(true)
     const {setFlights, deleteFlights} = useContext(Context).flights
     const onChangeHandler = (e) => {
-        setFlights(e.target.id, e.target.name, e.target.value)
+        setFlights({id: e.target.id, name: e.target.name, value: e.target.value})
     }
+
     return (
-        <div className="flights_row">
-            <span><input readOnly={true} id={props.id} name="id" type="text" value={props.id}/></span>
-            <span><input readOnly={ReadOnly} id={props.id} name="from" type="text" value={props.from} onChange={e => onChangeHandler(e)}/></span>
-            <span><input readOnly={ReadOnly} id={props.id} name="to" type="text" value={props.to} onChange={e => onChangeHandler(e)}/></span>
-            <span><input readOnly={ReadOnly} id={props.id} name="time_start" type="time" value={props.time_start} onChange={e => onChangeHandler(e)}/></span>
-            <span><input readOnly={ReadOnly} id={props.id} name="time_end" type="time" value={props.time_end} onChange={e => onChangeHandler(e)}/></span>
-            <span><input readOnly={ReadOnly} id={props.id} name="time" type="number" value={props.time} onChange={e => onChangeHandler(e)}/></span>
-            <div className="flights_row-btns">
-                <div className="flights_row-btn material-symbols-rounded" onClick={() => setReadOnly(false)}>edit</div>
-                <div className="flights_row-btn material-symbols-rounded" onClick={() => deleteFlights(props.id)}>delete</div>
-            </div>
-        </div>
-    );
+        <tr>
+            <td><input readOnly={true} value={props.id} onChange={e => onChangeHandler(e)} id={props.id} name={"id"} type={"number"}/></td>
+            <td><input readOnly={read} value={props.from} onChange={e => onChangeHandler(e)} id={props.id} name={"from"} type={"text"}/></td>
+            <td><input readOnly={read} value={props.to} onChange={e => onChangeHandler(e)} id={props.id} name={"to"} type={"text"}/></td>
+            <td><input readOnly={read} value={props.time_start} onChange={e => onChangeHandler(e)} id={props.id} name={"time_start"} type={"time"}/></td>
+            <td><input readOnly={read} value={props.time_end} onChange={e => onChangeHandler(e)} id={props.id} name={"time_end"} type={"time"}/></td>
+            <td><input readOnly={read} value={props.time} onChange={e => onChangeHandler(e)} id={props.id} name={"time"} type={"number"} maxLength='2'/></td>
+            <td>
+                <span className="material-symbols-rounded" onClick={() => setRead(false)}>edit</span>
+                <span className="material-symbols-rounded" onClick={() => deleteFlights(props.id)}>delete</span>
+            </td>
+        </tr>
+    )
 });
 
 export default FlightRow;

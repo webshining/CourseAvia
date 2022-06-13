@@ -21,7 +21,7 @@ const Flights = observer(() => {
                 </div>
                 <div className="flights_body">
                     {flights.map(i =>
-                        <FlightRow key={i.id} {...i}/>
+                        <FlightRow key={i.id} {...i} id={flights.indexOf(i) + 1}/>
                     )}
                 </div>
             </div>

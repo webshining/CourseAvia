@@ -81,6 +81,7 @@
     padding: 10px;
     border-radius: 10px;
     background: #595959;
+    -webkit-user-select: none;
     &:hover {
       background: #313131;
     }

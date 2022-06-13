@@ -7,9 +7,14 @@
 }
 
 body {
-    background: #313131;
     font-family: 'Montserrat', sans-serif;
     color: #fff;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://images.unsplash.com/photo-1589672170649-cffa865316ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z3JleSUyMHNreXxlbnwwfHwwfHw%3D&w=1000&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 a {

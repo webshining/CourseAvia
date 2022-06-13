@@ -1,4 +1,7 @@
 .topbar {
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 50px;
   background: #3f3f3f;
@@ -6,6 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 100000;
   &_logo {
     font-size: 20px;
     font-weight: 600;

@@ -1,15 +1,20 @@
 import {makeAutoObservable} from "mobx";
-import flightsList from './flights.json'
 
 export class FlightsStore {
-    flights = flightsList
+    flights = []
     constructor() {
         makeAutoObservable(this)
     }
 
-    setFlights = (id, name, value) => {
-        if (this.flights.map(f => f.id).indexOf(Number(id)) !== -1) {
-            this.flights[id-1][name] = value
+    setFlights = (id, name, value, obj) => {
+        if(!obj) {
+            if (this.flights.map(f => f.id).indexOf(Number(id)) !== -1) {
+                this.flights[id-1][name] = value
+            } else {
+                this.flights.push({id: this.flights.length+1, from: '', to: '', time_start: '', time_end: '', time: ''})
+            }
+        } else {
+            this.flights = JSON.parse(obj)
         }
     }
     deleteFlights = (id) => {

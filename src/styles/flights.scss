@@ -97,4 +97,19 @@
       }
     }
   }
+  &_btns {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  &_btn {
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 10px;
+    margin: 5px;
+    &:hover {
+      background: #313131;
+    }
+  }
 }

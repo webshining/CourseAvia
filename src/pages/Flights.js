@@ -39,7 +39,7 @@ const Flights = observer(() => {
                             <th>Куди</th>
                             <th>Час Відпр.</th>
                             <th>Час Прибут.</th>
-                            <th>Час Прибут.</th>
+                            <th>Час Польо.</th>
                             <th>Дії</th>
                         </tr>
                     </thead>

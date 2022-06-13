@@ -12,7 +12,7 @@ export class FlightsStore {
         } else if (this.flights.map(f => f.id).indexOf(Number(id)) !== -1) {
             this.flights[id-1][name] = value
         } else {
-            this.flights.push({id: this.flights.length+1, from: '', to: '', time_start: '', time_end: '', time: ''})
+            this.flights.push({id: this.flights.length+1, from: '', to: '', time_start: '00:00', time_end: '00:00', time: ''})
         }
     }
     deleteFlights = (id) => {

@@ -16,8 +16,16 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
 }
+#root {
+    width: 100%;
+    height: 100%;
+}
 
 a {
     color: unset;
     text-decoration: none;
+}
+
+.c_btn {
+    position: absolute;
 }

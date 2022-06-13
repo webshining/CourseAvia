@@ -6,4 +6,89 @@
   height: calc(100% - 50px);
   background: rgba(49, 49, 49, 0.5);
   backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .content {
+    position: relative;
+    width: 95%;
+    height: 95%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-radius: 10px;
+    border: 2px solid gray;
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+      background: rgba(49, 49, 49, 0.51);
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #fff;
+      border-radius: 10px;
+    }
+  }
+  &_head, &_body {
+    width: 100%;
+  }
+  &_row {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 17%) 1fr;
+    span {
+      position: relative;
+      padding: 20px;
+    }
+    span:not(:nth-child(6)) {
+      &:before {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2px;
+        height: 70%;
+        background: gray;
+      }
+    }
+    &-btns {
+      position: absolute;
+      height: 100%;
+      right: 10px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    &-btn {
+      cursor: pointer;
+    }
+  }
+  &_head {
+    position: sticky;
+    top: 0;
+    background: gray;
+    z-index: 999999;
+    span {
+      text-align: center;
+    }
+  }
+  &_body {
+    z-index: -1;
+    span {
+      padding: 0;
+    }
+    input {
+      padding: 10px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 10px;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
 }

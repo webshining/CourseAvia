@@ -1,6 +1,5 @@
 import {makeAutoObservable} from "mobx";
 import flightsList from './flights.json'
-import flights from "../pages/Flights";
 
 export class FlightsStore {
     flights = flightsList
@@ -9,14 +8,8 @@ export class FlightsStore {
     }
 
     setFlights = (id, name, value) => {
-        if (!(id in this.flights.map(i => i.id))) {
-            this.flights.push()
-        } else {
-            this.flights.forEach(f => {
-                if(f.id == id) {
-                    f[name] = value
-                }
-            })
+        if (this.flights.map(f => f.id).includes(Number(id))) {
+            this.flights[id-1][name] = value
         }
     }
 }

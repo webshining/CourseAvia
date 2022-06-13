@@ -1,0 +1,9 @@
+.flights {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(100% - 50px);
+  background: rgba(49, 49, 49, 0.5);
+  backdrop-filter: blur(10px);
+}

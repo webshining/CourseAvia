@@ -13,9 +13,8 @@
     position: relative;
     width: 95%;
     height: 95%;
-    overflow-x: hidden;
-    overflow-y: auto;
     border-radius: 10px;
+    overflow: auto;
     border: 2px solid gray;
     &::-webkit-scrollbar {
       width: 5px;
@@ -33,7 +32,9 @@
     width: 100%;
   }
   &_row {
+    width: 100%;
     position: relative;
+    left: 0;
     display: grid;
     grid-template-columns: repeat(5, 17%) 1fr;
     span {
@@ -69,6 +70,7 @@
     top: 0;
     background: gray;
     z-index: 999999;
+    overflow: hidden;
     span {
       text-align: center;
     }
@@ -111,5 +113,24 @@
     &:hover {
       background: #313131;
     }
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .flights_head {
+    font-size: 15px;
+  }
+  .flights_row-btn {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .flights_row {
+    span {
+      width: 100px;
+    }
+  }
+  .flights_body > .flights_row > span {
+    font-size: 10px;
   }
 }

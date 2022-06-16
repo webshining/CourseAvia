@@ -6,7 +6,18 @@
 * scss
 
 # INFO
-СОЗДАТЕЛЬ АРТЁМ, НЕ ФЕЙК)
+СОЗДАТЕЛЬ АРТЁМ
+## Start Web-App:
+```bash
+npm i
+npm start
+```
+## Build Web-App:
+```bash
+npm run build
+npm i -g serve
+serve -s build
+```
 
 ## Demo
 ![Demo](https://github.com/webshining/CourseAvia/blob/react/demo.gif)

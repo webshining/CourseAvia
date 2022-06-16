@@ -2,7 +2,6 @@ import AppRouter from "./components/AppRouter";
 import './styles/app.scss'
 import TopBar from "./components/TopBar";
 import {observer} from "mobx-react-lite";
-import {BrowserRouter} from "react-router-dom";
 import {useEffect} from "react";
 
 const App = observer(() => {
@@ -10,10 +9,10 @@ const App = observer(() => {
         console.log('%cWebShiningAviaApp(Artem)!', 'line-height: 70px; font-size: 50px; color: #11eef6; font-weight: 600; text-shadow: 5px 5px 10px #11eef6;')
     })
     return (
-      <BrowserRouter>
+      <>
         <TopBar/>
         <AppRouter/>
-      </BrowserRouter>
+      </>
     );
 })
 
